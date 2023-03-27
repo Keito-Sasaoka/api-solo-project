@@ -6,7 +6,7 @@ module.exports = {
   COUNTRY_DATA_TABLE,
 
   getAll(limit = 200) {
-    return knex
+    return knex(COUNTRY_DATA_TABLE)
       .select({
         id: "id",
         name: "name",
@@ -14,8 +14,31 @@ module.exports = {
         population: "population",
         population_density: "population_density",
       })
-      .from(COUNTRY_DATA_TABLE)
       .limit(limit);
+  },
+
+  getById(id) {
+    return knex(COUNTRY_DATA_TABLE)
+      .select({
+        id: "id",
+        name: "name",
+        area: "area",
+        population: "population",
+        population_density: "population_density",
+      })
+      .where("id", id);
+  },
+
+  getByName(name) {
+    return knex(COUNTRY_DATA_TABLE)
+      .select({
+        id: "id",
+        name: "name",
+        area: "area",
+        population: "population",
+        population_density: "population_density",
+      })
+      .whereILike("name", `%${name}%`);
   },
 
   insertCountry(country) {

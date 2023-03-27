@@ -25,6 +25,38 @@ describe("COUNTRY DATA API Server", () => {
     });
   });
 
+  describe("GET /country:idOrName - returning country data", () => {
+    it("should return :idOrName data ", async () => {
+      const res = await request.get("/country/ira");
+      const expectData = [
+        {
+          id: 3,
+          name: "United Arab Emirates",
+          area: "71024.00",
+          population: "936.00",
+          population_density: "132.00",
+        },
+        {
+          id: 7,
+          name: "Iraq",
+          area: "435052.00",
+          population: "3883.00",
+          population_density: "89.00",
+        },
+        {
+          id: 8,
+          name: "Iran",
+          area: "1628777.00",
+          population: "8307.00",
+          population_density: "51.00",
+        },
+      ];
+
+      res.should.be.json;
+      JSON.parse(res.text).should.deep.equal(expectData);
+    });
+  });
+
   describe("POST /country - adding country data", () => {
     it("should add new country data  ", async () => {
       const insertData = {

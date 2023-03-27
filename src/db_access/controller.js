@@ -1,15 +1,26 @@
 const model = require("./model");
 
 module.exports = {
-  async countryGet(req, res) {
+  async countryGetAll(req, res) {
     const limit = req.query.limit;
-    let testdata;
+    let data;
     if (limit) {
-      testdata = await model.getAll(limit);
+      data = await model.getAll(limit);
     } else {
-      testdata = await model.getAll();
+      data = await model.getAll();
     }
-    res.send(testdata);
+    res.json(data);
+  },
+
+  async countryGet(req, res) {
+    const idOrName = req.params.idOrName;
+    let data;
+    if (isNaN(Number(idOrName))) {
+      data = await model.getByName(idOrName);
+    } else {
+      data = await model.getById(idOrName);
+    }
+    res.json(data);
   },
 
   async countryPost(req, res) {
