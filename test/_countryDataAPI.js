@@ -4,7 +4,6 @@ chai.use(chaiHttp);
 const { setupServer } = require("../src/server");
 const config = require("../knexfile");
 const knex = require("knex")(config);
-// const fixtures = require("./fixtures");
 const model = require("../src/db_access/model");
 const COUNTRY_DATA_TABLE = model.COUNTRY_DATA_TABLE;
 chai.should();

@@ -76,40 +76,4 @@ module.exports = {
       .where("name", name)
       .del();
   },
-
-  //   getById(id) {
-  //     return knex
-  //       .select({
-  //         id: "id",
-  //         lastName: "last_name",
-  //         firstName: "first_name",
-  //         email: "email",
-  //         address: "address",
-  //         city: "city",
-  //         region: "region",
-  //         postalCode: "postal_code",
-  //         country: "country",
-  //       })
-  //       .from(CUSTOMER_TABLE)
-  //       .where({
-  //         id: id,
-  //       })
-  //       .first();
-  //   },
-
-  //   create(customer) {
-  //     validateRequired(validateProps(customer));
-  //     return knex.insert(customer).into(CUSTOMER_TABLE);
-  //   },
-
-  // update(id, customer) {
-  //   validateProps(customer);
-  //   return knex(CUSTOMER_TABLE)
-  //     .where({
-  //       id: id,
-  //     })
-  //     .update(customer)
-  //     .returning("id")
-  // .then((result) => result[0].id);
-  // },
 };

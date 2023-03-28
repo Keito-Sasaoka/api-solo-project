@@ -1,4 +1,4 @@
-# API SOLO PROJECT
+# API Solo Project
 
 ## 概要
 
@@ -22,14 +22,15 @@ ID or 国名指定 (※国名は大文字/小文字を区別せず部分一致�
 ### データ追加
 
 `POST /country`  
-request body : JSON Format  
-`{id: {id}, name: {name}, area: {area}, population: {population}, population_density: {population_density} }`
+request body :
+`{"id": {id}, "name": {name}, "area": {area}, "population": {population}, "population_density": {population_density} }`
 
 ### データ更新
 
 `PATCH /country/{id or name}`  
-request body : JSON Format (※全ての key を含める必要はない)  
- `{id: {id}, name: {name}, area: {area}, population: {population}, population_density: {population_density} }`
+request body :
+`{"id": {id}, "name": {name}, "area": {area}, "population": {population}, "population_density": {population_density} }`  
+ (※全ての key を request body に含める必要はない)
 
 ### データ削除
 
